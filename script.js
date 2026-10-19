@@ -18,6 +18,7 @@ const TANK_WIDTH = 900;
 const TANK_HEIGHT = 600;
 const FISH_WIDTH = 120;
 const FISH_HEIGHT = 90;
+const allFish = [];
 
 for (let i = 0; i < 7; i++) {
    // pick one of the five images at random
@@ -34,6 +35,32 @@ for (let i = 0; i < 7; i++) {
    img.style.left = x + "px";
    img.style.top = y + "px";
 
-   // put it in the tank
+  
+   
    tank.appendChild(img);
+
+   allFish.push({ 
+    el: img,
+     x: x, 
+     y: y, 
+     speed: 2, 
+     direction: 1 });
 }
+   
+function moveAll() {
+   for (const fish of allFish) {
+    fish.x += fish.direction * fish.speed;
+    if (fish.x < 0) {
+        fish.x = 0;
+        fish.direction = 1;
+    }
+    if (fish.x > TANK_WIDTH - FISH_WIDTH){
+        fish.x = TANK_WIDTH - FISH_WIDTH;
+        fish.direction = -1;
+    }
+    fish.el.style.left = fish.x + "px";
+
+   }
+}
+
+setInterval(moveAll, 30);
