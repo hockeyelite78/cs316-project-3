@@ -39,14 +39,26 @@ for (let i = 0; i < 7; i++) {
    
    tank.appendChild(img);
 
-   let fish = { el: img, x: x, y: y, speed: 2, direction: 1 };
+   let fish = { el: img, x: x, y: y, speed: 2, baseSpeed: 2, direction: 1 };
+
    allFish.push(fish);
+
    let delay = Math.floor(Math.random() * 6000) + 2000;
+
    setInterval(function() {
    if (Math.random() < 0.5){
     fish.direction = fish.direction * -1;
-   }
-}, delay);
+     }
+    }, delay);
+    
+   img.addEventListener("click", function() {
+    fish.speed = fish.baseSpeed * 3;
+    clearTimeout(fish.timeoutId);
+    fish.timeoutId = setTimeout(function() {
+      fish.speed = fish.baseSpeed;
+      }, 3000);
+    });
+
 }
    
 function moveAll() {
