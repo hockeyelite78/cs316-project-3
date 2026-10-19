@@ -52,12 +52,13 @@ for (let i = 0; i < 7; i++) {
     }, delay);
     
    img.addEventListener("click", function() {
-    fish.speed = fish.baseSpeed * 3;
-    clearTimeout(fish.timeoutId);
-    fish.timeoutId = setTimeout(function() {
+   console.log("clicked");
+   fish.speed = fish.baseSpeed * 3;
+   clearTimeout(fish.timeoutId);
+   fish.timeoutId = setTimeout(function() {
       fish.speed = fish.baseSpeed;
-      }, 3000);
-    });
+   }, 3000);
+});
 
 }
    
