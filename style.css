@@ -1,5 +1,15 @@
 #tank {
-   width: 800px;
+   width: 900px;
    height: 600px;
-   background-color: red;
+   background: linear-gradient(#1e9de7, #012237);
+   border: 5px solid #00031d;
+   position: relative;
+   overflow:hidden;
+
+}
+
+.fish{ 
+   position: absolute;
+   width:120px;  
+   height: 90px;
 }
