@@ -24,7 +24,7 @@ for (let i = 0; i < 7; i++) {
    // pick one of the five images at random
    let index = Math.floor(Math.random() * fishImages.length);
 
-   // make a new <img> element and configure it
+   // make a new img element and configure it
    let img = document.createElement("img");
    img.src = fishImages[index];
    img.className = "fish";
@@ -51,6 +51,7 @@ for (let i = 0; i < 7; i++) {
      }
     }, delay);
     
+    // capture user click plus a console log for debugging
    img.addEventListener("click", function() {
    console.log("clicked");
    fish.speed = fish.baseSpeed * 3;
@@ -61,7 +62,7 @@ for (let i = 0; i < 7; i++) {
 });
 
 }
-   
+   // animation loop
 function moveAll() {
    for (const fish of allFish) {
     fish.x += fish.direction * fish.speed;
